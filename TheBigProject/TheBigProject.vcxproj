@@ -127,12 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Build SnapShot.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LogFile.c" />
-    <ClCompile Include="Build Snapshot.c" />
+    <ClCompile Include="Build ProcessList.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BuildSnapshot.h" />
+    <ClInclude Include="Build ProcessList.h" />
+    <ClInclude Include="Build SnapShot.h" />
     <ClInclude Include="LogFile.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>

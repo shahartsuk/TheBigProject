@@ -1,12 +1,6 @@
-﻿  Build Snapshot.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(63,13): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'TCHAR *'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(63,13): message : consider using '%ls' in the format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(63,13): message : consider using '%lls' in the format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(63,13): message : consider using '%Ls' in the format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(63,13): message : consider using '%ws' in the format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(31,9): warning C4101: 'Buffer2': unreferenced local variable
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(33,8): warning C4101: 'regularCharArr': unreferenced local variable
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(90,3): warning C4013: 'logError' undefined; assuming extern returning int
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build Snapshot.c(91,11): warning C4098: 'GetProcessInfo': 'void' function returning a value
-Build Snapshot.obj : error LNK2019: unresolved external symbol logError referenced in function GetProcessInfo
-C:\Users\shaha\source\repos\TheBigProject\x64\Debug\TheBigProject.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Build SnapShot.c
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(36,3): warning C4033: 'OneSnapShot' must return a value
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(148,10): warning C4477: 'printf' : format string '%zu' requires an argument of type 'unsigned __int64', but variadic argument 3 has type 'DWORD'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(148,10): message : consider using '%lu' in the format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(56): warning C4715: 'OneSnapShot': not all control paths return a value
+  TheBigProject.vcxproj -> C:\Users\shaha\source\repos\TheBigProject\x64\Debug\TheBigProject.exe

@@ -27,7 +27,10 @@
     <ClCompile Include="Main.c">
       <Filter>Source Files\TheMain</Filter>
     </ClCompile>
-    <ClCompile Include="Build Snapshot.c">
+    <ClCompile Include="Build ProcessList.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Build SnapShot.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +41,10 @@
     <ClInclude Include="Structs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BuildSnapshot.h">
+    <ClInclude Include="Build ProcessList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Build SnapShot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

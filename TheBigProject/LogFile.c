@@ -20,16 +20,16 @@ void LogFile(char message[1000])
     time_t t;
     time(&t);
 
-    struct tm* timeinfo;
+    struct tm* timeInfo;
 
-    timeinfo = localtime(&t);
+    timeInfo = localtime(&t);
 
     FILE* f = fopen(logFileName, "a");
     if (!f) {
         printf("error1");
         exit(1);
     }
-    sprintf(date, "sec%d.min%d.hour%d.day%d.mounth%d.year%d-%s", timeinfo->tm_sec, timeinfo->tm_min, timeinfo->tm_hour, timeinfo->tm_mday, timeinfo->tm_mon, timeinfo->tm_year % 100, message);
+    sprintf(date, "%d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min,message);
     fputs(date, f);
     fputs("\n", f);
 
