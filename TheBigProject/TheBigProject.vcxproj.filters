@@ -33,6 +33,12 @@
     <ClCompile Include="Build SnapShot.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
+    <ClCompile Include="LongSnapShot.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
+    <ClCompile Include="DLLDictionary.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogFile.h">
@@ -45,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Build SnapShot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LongSnapShot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DLLDictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

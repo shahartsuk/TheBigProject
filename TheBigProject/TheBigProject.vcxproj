@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Build SnapShot.c" />
+    <ClCompile Include="DLLDictionary.c" />
+    <ClCompile Include="LongSnapShot.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LogFile.c" />
     <ClCompile Include="Build ProcessList.c" />
@@ -135,7 +137,9 @@
   <ItemGroup>
     <ClInclude Include="Build ProcessList.h" />
     <ClInclude Include="Build SnapShot.h" />
+    <ClInclude Include="DLLDictionary.h" />
     <ClInclude Include="LogFile.h" />
+    <ClInclude Include="LongSnapShot.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

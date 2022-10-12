@@ -6,6 +6,8 @@
 #include"Build SnapShot.h"
 #include"Build ProcessList.h"
 #include"LogFile.h"
+#include"LongSnapShot.h"
+#include"DLLDictionary.h"
 #pragma warning (disable:4996)
 
 int main()
@@ -20,7 +22,7 @@ int main()
     char userResponses = NULL;
     while (userResponses != 'Q')
     {
-        printf("dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. B-Take 20 snapshots\n3. L-Start long snapshot\n4. E-End long snapshot\n5. G-Generate HTML report\n6. R-Reset collection\n7. S-Save in file\n8. Q-Quit\n");
+        printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. B-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. Q-Quit\n");
         scanf(" %c", &userResponses);
         switch (userResponses)
         {
@@ -37,16 +39,28 @@ int main()
                  //LogEvent(strEvents);
                  TwentySnapShots();
             break;
-            /* case 'L':
+            case 'L':
+                LongSnapShot();
             break;
-        case 'E':
+        case 'G':       
+            if (!Shead)
+            {
+                printf("There no SnapShots in the list plas try other options");
+            }
+            else
+            {
+                searchForAllTheDLLS();
+            }
             break;
-        case 'G':
-            break;
+            /* 
         case 'R':
+        releaseSnapShotList();
             break;
         case 'S':
             break;*/
+            case 'Q':
+                releaseSnapShotList();
+                break; 
         default:
             printf("wrong selection, pls be more sharp");
             break;

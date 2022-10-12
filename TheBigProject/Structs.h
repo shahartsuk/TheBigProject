@@ -34,3 +34,10 @@ typedef struct HeaderFile {
 	int ItemsCount;
 	char reserve[100];
 }t_headerOfFile;
+
+typedef struct DLLDictionary {
+	char DLLName[MAX_PATH];
+	struct Processes* ProcessList;
+	struct DLLDictionary* next;
+	struct DLLDictionary* prev;
+}t_DLLDictionary;

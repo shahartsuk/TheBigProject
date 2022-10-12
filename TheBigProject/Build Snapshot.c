@@ -15,8 +15,6 @@ char strError[1000];
 t_SnapShot* Shead = NULL;
 t_SnapShot* Stail = NULL;
 
-t_SnapShot* fullSnapShot = NULL;
-
 int sampleCounter = 1;
 
 t_SnapShot* OneSnapShot()
@@ -58,17 +56,22 @@ void TwentySnapShots() {
 	t_SnapShot* origSnapShot = OneSnapShot();
 	t_SnapShot* newTempSnapshot = NULL;
 
+	t_Process* currentOrigProcess = NULL;
+	t_Process* newProcess = NULL;
 	t_Process* newProcessP = NULL;
+
 	t_DLL* newDLLP = NULL;
+	t_DLL* newProcessDll = NULL;
+	t_DLL* currentOrigProcessDll = NULL;
 
 	for (int i = 0; i < 20; i++)
 	{
 		newTempSnapshot = OneSnapShot();
 		// check if there is the same process, if so I summarize their memory
-		t_Process* newProcess = newTempSnapshot->process;
+		newProcess = newTempSnapshot->process;
 		while (newProcess)
 		{
-			t_Process* currentOrigProcess = origSnapShot->process;
+			currentOrigProcess = origSnapShot->process;
 			while (currentOrigProcess)
 			{
 				// Iterate over processes that are in main snapshot
@@ -82,10 +85,10 @@ void TwentySnapShots() {
 					currentOrigProcess->pmc.PagefileUsage += newProcess->pmc.PagefileUsage;
 
 					// Iterate new dll list
-					t_DLL* newProcessDll = newProcess->ProcessDLLList;
+					newProcessDll = newProcess->ProcessDLLList;
 					while (newProcessDll)
 					{
-						t_DLL* currentOrigProcessDll = currentOrigProcess->ProcessDLLList;
+						currentOrigProcessDll = currentOrigProcess->ProcessDLLList;
 						while (currentOrigProcessDll)
 						{
 							if (strncmp(currentOrigProcessDll->DLLName, newProcessDll->DLLName, MAX_PATH) == 0)
@@ -193,6 +196,8 @@ void releaseSnapShotList()
 	}
 	Shead = Stail = NULL;
 	sampleCounter = 1;
+	releaseProcessList();
+	releaseDLLList();
 }
 void releaseDLLList()
 {

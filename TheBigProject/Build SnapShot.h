@@ -9,9 +9,6 @@
 extern t_SnapShot* Shead;
 extern t_SnapShot* Stail;
 
-extern t_SnapShot* firstSnapShot;
-extern t_SnapShot* fullSnapShot;
-
 extern int sampleCounter;
 
 t_SnapShot* OneSnapShot();

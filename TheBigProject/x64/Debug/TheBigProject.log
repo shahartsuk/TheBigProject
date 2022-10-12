@@ -1,6 +1,2 @@
-﻿  Build SnapShot.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(36,3): warning C4033: 'OneSnapShot' must return a value
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(148,10): warning C4477: 'printf' : format string '%zu' requires an argument of type 'unsigned __int64', but variadic argument 3 has type 'DWORD'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(148,10): message : consider using '%lu' in the format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(56): warning C4715: 'OneSnapShot': not all control paths return a value
+﻿  DLLDictionary.c
   TheBigProject.vcxproj -> C:\Users\shaha\source\repos\TheBigProject\x64\Debug\TheBigProject.exe
