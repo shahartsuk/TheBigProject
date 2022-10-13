@@ -35,6 +35,7 @@ int main()
             Dhead = Dtail = NULL;
             break;
              case 'B':
+                 printf("Please wait for twenty seconds");
                  strcpy(strEvents, "Taking twenty snapshots");
                  //LogEvent(strEvents);
                  TwentySnapShots();

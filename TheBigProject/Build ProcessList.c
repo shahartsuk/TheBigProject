@@ -83,6 +83,7 @@ void ProcessMemoryInfo(DWORD processID)
 					wcstombs_s(&numConverted, DllName, MAX_PATH, DLLName, MAX_PATH);
 					if (strlen(DllName ) <= 1)
 					{
+						DLLCounter--;
 						break;
 					}
 					DLLCounter++;

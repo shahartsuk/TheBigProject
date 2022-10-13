@@ -39,6 +39,12 @@
     <ClCompile Include="DLLDictionary.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
+    <ClCompile Include="averageProcessMemory.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="averageProcessMemory.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogFile.h">

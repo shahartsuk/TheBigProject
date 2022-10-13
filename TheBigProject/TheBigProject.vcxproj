@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="averageProcessMemory.c" />
+    <ClCompile Include="averageProcessMemory.h" />
     <ClCompile Include="Build SnapShot.c" />
     <ClCompile Include="DLLDictionary.c" />
     <ClCompile Include="LongSnapShot.c" />

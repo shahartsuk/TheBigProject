@@ -10,6 +10,7 @@
 #include"Build ProcessList.h"
 #include"Build SnapShot.h"
 #include"DLLDictionary.h"
+#include"averageProcessMemory.h"
 #pragma warning (disable:4996)
 
 // search all the process that use the same dll in the snapshot list.
@@ -31,9 +32,11 @@ void searchForAllTheDLLS()
 
 	while (currentSList)
 	{
+		averageProcessMemory(NULL, currentSList);
 		currentProcess = currentSList->process;
 		while (currentProcess)
 		{
+			averageProcessMemory(currentProcess,NULL);
 			currentProcessDll = currentProcess->ProcessDLLList;
 			while (currentProcessDll)
 			{

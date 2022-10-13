@@ -1,2 +1,12 @@
-﻿  DLLDictionary.c
+﻿  Build SnapShot.c
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(34,3): warning C4033: 'OneSnapShot' must return a value
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(152,10): warning C4477: 'printf' : format string '%zu' requires an argument of type 'unsigned __int64', but variadic argument 3 has type 'DWORD'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(152,10): message : consider using '%lu' in the format string
+  Main.c
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(22,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+  averageProcessMemory.c
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\averageProcessMemory.c(39,21): warning C4244: '=': conversion from 'unsigned __int64' to 'long', possible loss of data
+  Generating Code...
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\averageProcessMemory.c(41): warning C4716: 'averageProcessMemory': must return a value
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Build SnapShot.c(54): warning C4715: 'OneSnapShot': not all control paths return a value
   TheBigProject.vcxproj -> C:\Users\shaha\source\repos\TheBigProject\x64\Debug\TheBigProject.exe

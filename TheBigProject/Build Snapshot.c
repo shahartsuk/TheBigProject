@@ -64,7 +64,7 @@ void TwentySnapShots() {
 	t_DLL* newProcessDll = NULL;
 	t_DLL* currentOrigProcessDll = NULL;
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 1; i < 21; i++)
 	{
 		newTempSnapshot = OneSnapShot();
 		// check if there is the same process, if so I summarize their memory
@@ -139,6 +139,7 @@ void TwentySnapShots() {
 		}
 
 		Sleep(1000);
+		printf("%d\n",i);
 	}
 	buildSnapShotList(origSnapShot);
 }
