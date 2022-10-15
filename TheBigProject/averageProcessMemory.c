@@ -26,11 +26,7 @@ long averageProcessMemory(t_SnapShot* currSnapShot)
 	{
 		while (currProcess)
 		{
-		sum1SnapShot += currProcess->pmc.PageFaultCount;
 		sum1SnapShot += currProcess->pmc.WorkingSetSize;
-		sum1SnapShot += currProcess->pmc.QuotaPagedPoolUsage;
-		sum1SnapShot += currProcess->pmc.QuotaPeakPagedPoolUsage;
-		sum1SnapShot += currProcess->pmc.PagefileUsage;
 
 		currProcess = currProcess->next;
 		}

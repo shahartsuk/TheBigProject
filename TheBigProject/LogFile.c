@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include <time.h>
 #include"LogFile.h"
+#include <Windows.h>
 #pragma warning (disable:4996)
 
 char logFileName[1000];
@@ -26,7 +27,7 @@ void LogFile(char message[1000])
 
     FILE* f = fopen(logFileName, "a");
     if (!f) {
-        printf("error1");
+        LogError(strerror(GetLastError()));
         exit(1);
     }
     sprintf(date, "%d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min,message);

@@ -45,6 +45,12 @@
     <ClCompile Include="averageProcessMemory.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryFree.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapShotFile.c">
+      <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogFile.h">
@@ -63,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DLLDictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryFree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapShotFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

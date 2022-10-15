@@ -15,6 +15,8 @@
 void LongSnapShot()
 {
 	t_SnapShot* origSnapShot = OneSnapShot();
+
+	//in order not to run over the original list i use another pointers
 	t_SnapShot* newTempSnapshot = NULL;
 
 	t_Process* currentOrigProcess = NULL;
@@ -70,6 +72,7 @@ void LongSnapShot()
 								newDLLP = (t_DLL*)malloc(sizeof(t_DLL));
 								if (!newDLLP)
 								{
+									LogError(strerror(GetLastError()));
 									exit(1);
 								}
 								*newDLLP = *newProcessDll;
@@ -78,6 +81,7 @@ void LongSnapShot()
 								newDLLP->prev = currentOrigProcessDll;
 								newDLLP->next = NULL;
 								currentOrigProcess->DLLNumber++;
+								
 							}
 
 							currentOrigProcessDll = currentOrigProcessDll->next;
@@ -93,6 +97,7 @@ void LongSnapShot()
 					newProcessP = (t_Process*)malloc(sizeof(t_Process));
 					if (!newProcessP)
 					{
+						LogError(strerror(GetLastError()));
 						exit(1);
 					}
 					*newProcessP = *newProcess;
@@ -100,6 +105,7 @@ void LongSnapShot()
 					currentOrigProcess->next = newProcessP;
 					newProcessP->prev = currentOrigProcess;
 					newProcessP->next = NULL;
+					
 				}
 				currentOrigProcess = currentOrigProcess->next;
 			}

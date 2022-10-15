@@ -13,10 +13,10 @@
 #include"averageProcessMemory.h"
 #pragma warning (disable:4996)
 
-// search all the process that use the same dll in the snapshot list.
 t_DLLDictionary* DDictionaryHead = NULL;
 t_DLLDictionary* DDictionaryTail = NULL;
 
+// search all the process that use the same dll in the snapshot list.
 void searchForAllTheDLLS()
 {
 
@@ -69,6 +69,7 @@ void buildDLLDictionaryList(t_DLL* newDLL)
 	t_DLLDictionary* addDLL = (t_DLLDictionary*)malloc(sizeof(t_DLLDictionary));
 	if (!addDLL)
 	{
+		LogError(strerror(GetLastError()));
 		exit(1);
 	}
 	t_DLL* currDLL = newDLL;
@@ -133,6 +134,7 @@ void addToDictionary(t_DLLDictionary* curr, t_Process* newItem)
 	t_Process* addProcess = (t_Process*)malloc(sizeof(t_Process));
 	if (!addProcess)
 	{
+		LogError(strerror(GetLastError()));
 		exit(1);
 	}
 	*addProcess = *newItem;

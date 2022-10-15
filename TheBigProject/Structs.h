@@ -30,7 +30,6 @@ typedef struct snapShot {
 
 typedef struct HeaderFile {
 	int version;
-	int serialNum;
 	int ItemsCount;
 	char reserve[100];
 }t_headerOfFile;

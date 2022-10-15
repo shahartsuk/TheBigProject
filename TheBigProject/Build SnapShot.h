@@ -16,8 +16,5 @@ void TwentySnapShots();
 
 void buildSnapShotList(t_SnapShot*);
 
-void releaseProcessList();
-void releaseSnapShotList();
 void printTheList();
-void releaseDLLList();
 

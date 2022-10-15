@@ -30,11 +30,10 @@ t_SnapShot* OneSnapShot()
 	t_SnapShot* SnapShot = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 	if (!SnapShot)
 	{
-		///////////////////////////////////////////////LogError(strerror(GetLastError()));
-		return;
+		LogError(strerror(GetLastError()));
+		exit(1);
 	}
-	else
-	{
+	
 		SnapShot->next = SnapShot->prev = NULL;
 		SnapShot->process = head;
 		SnapShot->processCounter = PCounter;
@@ -42,7 +41,7 @@ t_SnapShot* OneSnapShot()
 		strcpy(SnapShot->SampleTime, date);
 		SnapShot->sampleNumber = sampleCounter;
 		sampleCounter++;
-	}
+
 	//printTheList();
 	
 
@@ -54,6 +53,8 @@ t_SnapShot* OneSnapShot()
 }
 void TwentySnapShots() {
 	t_SnapShot* origSnapShot = OneSnapShot();
+
+	//in order not to run over the original list i use another pointers
 	t_SnapShot* newTempSnapshot = NULL;
 
 	t_Process* currentOrigProcess = NULL;
@@ -101,6 +102,7 @@ void TwentySnapShots() {
 								newDLLP = (t_DLL*)malloc(sizeof(t_DLL));
 								if (!newDLLP)
 								{
+									LogError(strerror(GetLastError()));
 									exit(1);
 								}
 								*newDLLP = *newProcessDll;
@@ -124,6 +126,7 @@ void TwentySnapShots() {
 					newProcessP = (t_Process*)malloc(sizeof(t_Process));
 					if (!newProcessP)
 					{
+						LogError(strerror(GetLastError()));
 						exit(1);
 					}
 					*newProcessP = *newProcess;
@@ -177,36 +180,4 @@ void buildSnapShotList(t_SnapShot* snapShot)
 	sampleCounter++;
 
 }
-void releaseProcessList() {
-	t_Process* freeTheList;
-	while (head) {
-		freeTheList = head;
-		head = head->next;
-		free(freeTheList);
-	}
-	head = tail = NULL;
-}
 
-void releaseSnapShotList()
-{
-	t_SnapShot* freeTheList;
-	while (Shead) {
-		freeTheList = Shead;
-		Shead = Shead->next;
-		free(freeTheList);
-	}
-	Shead = Stail = NULL;
-	sampleCounter = 1;
-	releaseProcessList();
-	releaseDLLList();
-}
-void releaseDLLList()
-{
-	t_DLL* freeTheList;
-	while (Dhead) {
-		freeTheList = Dhead;
-		Dhead = Dhead->next;
-		free(freeTheList);
-	}
-	Dhead = Dtail = NULL;
-}

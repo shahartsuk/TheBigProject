@@ -8,6 +8,9 @@
 #include"Build SnapShot.h"
 #include"LogFile.h"
 
+extern t_DLLDictionary* DDictionaryHead;
+extern t_DLLDictionary* DDictionaryTail;
+
 void searchForAllTheDLLS();
 void buildDLLDictionaryList(t_DLL*);
 void addNewValue();

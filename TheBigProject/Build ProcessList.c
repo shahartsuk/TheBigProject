@@ -19,6 +19,14 @@ int PCounter=0;
 
 void ProcessMemoryInfo(DWORD processID)
 {
+	char strFileName[1000];
+	time_t t;
+	time(&t);
+
+	struct tm* timeInfo;
+
+	timeInfo = localtime(&t);
+
 	int DLLCounter=0;
 	int i = 0;
 	HANDLE hProcess;
@@ -53,7 +61,7 @@ void ProcessMemoryInfo(DWORD processID)
 		}
 		else
 		{
-			// //////////////////LogError(strerror(GetLastError()));
+			LogError(strerror(GetLastError()));
 			return;
 		}
 
@@ -76,8 +84,6 @@ void ProcessMemoryInfo(DWORD processID)
 				{
 					
 					// * Get the module name and handle value.
-					//printf("%s", DLLName);
-
 					// Convert wChar to regular char array (string)
 					size_t numConverted;
 					wcstombs_s(&numConverted, DllName, MAX_PATH, DLLName, MAX_PATH);
@@ -89,17 +95,23 @@ void ProcessMemoryInfo(DWORD processID)
 					DLLCounter++;
 					
 				}
-				//printf("%s", DllName);
 			buildDllList(DllName);
 			}
 		}
 
-		buildProcessList(processID,ProcessName,DLLCounter,Dhead,pmc);
+		buildProcessData(processID,ProcessName,DLLCounter,pmc);
 
 		CloseHandle(hProcess);
 }
 int GetProcessInfo()
 {
+	char strFileName[1000];
+	time_t t;
+	time(&t);
+
+	struct tm* timeInfo;
+
+	timeInfo = localtime(&t);
 	//Get processes
 	//Receive all process ID
 
@@ -111,7 +123,7 @@ int GetProcessInfo()
 	// EnumProcesses function get the processes id
 	if (!EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded))
 	{
-		///////////////////////////////////////LogError(strerror(GetLastError()));
+		LogError(strerror(GetLastError()));
 		return 1;
 	}
 
@@ -134,11 +146,10 @@ void buildDllList(char NDLL[MAX_PATH])
 	t_DLL* addDLL = (t_DLL*)malloc(sizeof(t_DLL));
 	if (!addDLL)
 	{
-		/////////////////////////////////LogError(strerror(GetLastError()));
-		return;
+		LogError(strerror(GetLastError()));
+		exit(1);
 	}
-	else
-	{
+
 	strcpy(addDLL->DLLName,NDLL);
 	addDLL->next = NULL;
 	addDLL->prev = NULL;
@@ -152,17 +163,16 @@ void buildDllList(char NDLL[MAX_PATH])
 		Dtail->next = addDLL;
 		Dtail = addDLL;
 	}
-	}
 }
-void buildProcessList(int PID, char PName[MAX_PATH], int DLLNumber, t_DLL* DLLList, PROCESS_MEMORY_COUNTERS ProcessMemory)
+void buildProcessData(int PID, char PName[MAX_PATH], int DLLNumber, PROCESS_MEMORY_COUNTERS ProcessMemory)
 {
 	t_Process* curr = (t_Process*)malloc(sizeof(t_Process));
 	if (!curr)
 	{
-		///////////////////////////////////LogError(strerror(GetLastError()));
-		return;
+		LogError(strerror(GetLastError()));
+		exit(1);
 	}
-	else {
+
 	curr->ProcessID = PID;
 	strcpy(curr->ProcessName, PName);
 	curr->ProcessDLLList = Dhead;
@@ -174,6 +184,12 @@ void buildProcessList(int PID, char PName[MAX_PATH], int DLLNumber, t_DLL* DLLLi
 	curr->pmc.PagefileUsage = ProcessMemory.PagefileUsage;
 	curr->next = curr->prev = NULL;
 	PCounter++;
+
+	buildProcessList(curr);
+}
+
+void buildProcessList(t_Process* curr)
+{
 	if (!head)
 	{
 		head = curr;
@@ -184,8 +200,8 @@ void buildProcessList(int PID, char PName[MAX_PATH], int DLLNumber, t_DLL* DLLLi
 		tail->next = curr;
 		tail = curr;
 	}
-	}
 	Dhead = Dtail = NULL;
+
 }
 
 
