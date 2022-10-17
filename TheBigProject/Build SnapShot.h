@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include <psapi.h>
 #include"Structs.h"
+#include"MemoryFree.h"
 
 extern t_SnapShot* Shead;
 extern t_SnapShot* Stail;
@@ -18,3 +19,5 @@ void buildSnapShotList(t_SnapShot*);
 
 void printTheList();
 
+void printDllList(t_DLL*);
+void printProcessList(t_Process*);

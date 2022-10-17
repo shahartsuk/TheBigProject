@@ -13,38 +13,56 @@
 #pragma warning (disable:4996)
 
 
-void releaseProcessList() {
-	t_Process* freeTheList;
-	while (head) {
-		freeTheList = head;
-		head = head->next;
-		free(freeTheList);
+void resetSnapShot(t_SnapShot* snapShotList) { // deletes one snapshot
+	t_SnapShot* currentSnapShot;
+	t_Process* currentPorcess;
+	t_DLL* currentDLL;
+
+	currentSnapShot = snapShotList;
+	while (snapShotList->process)
+	{
+		currentPorcess = snapShotList->process;
+		while (snapShotList->process->ProcessDLLList)
+		{
+			currentDLL = snapShotList->process->ProcessDLLList;
+			snapShotList->process->ProcessDLLList = snapShotList->process->ProcessDLLList->next;
+			free(currentDLL);
+		}
+		snapShotList->process->ProcessDLLList = NULL;
+		snapShotList->process = snapShotList->process->next;
+		free(currentPorcess);
 	}
-	head = tail = NULL;
+	snapShotList->process = NULL;
+	free(currentSnapShot);
+	snapShotList = NULL;
 }
 
-void releaseSnapShotList()
-{
-	t_SnapShot* freeTheList;
-	while (Shead) {
-		freeTheList = Shead;
+void resetCollection() { // deletes all list
+	t_SnapShot* currentSnapShot;
+	t_Process* currentPorcess;
+	t_DLL* currentDLL;
+	currentSnapShot = Shead;
+	while (Shead)
+	{
+		currentSnapShot = Shead;
+		while (Shead->process)
+		{
+			currentPorcess = Shead->process;
+			while (Shead->process->ProcessDLLList)
+			{
+				currentDLL = Shead->process->ProcessDLLList;
+				Shead->process->ProcessDLLList = Shead->process->ProcessDLLList->next;
+				free(currentDLL);
+			}
+			Shead->process->ProcessDLLList = NULL;
+			Shead->process = Shead->process->next;
+			free(currentPorcess);
+		}
+		Shead->process = NULL;
 		Shead = Shead->next;
-		free(freeTheList);
+		free(currentSnapShot);
 	}
-	Shead = Stail = NULL;
-	sampleCounter = 0;
-	releaseProcessList();
-	releaseDLLList();
-}
-void releaseDLLList()
-{
-	t_DLL* freeTheList;
-	while (Dhead) {
-		freeTheList = Dhead;
-		Dhead = Dhead->next;
-		free(freeTheList);
-	}
-	Dhead = Dtail = NULL;
+	addToList(NULL);
 }
 
 void releaseDLLDictionaryList()

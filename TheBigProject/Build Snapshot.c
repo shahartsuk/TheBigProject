@@ -42,14 +42,9 @@ t_SnapShot* OneSnapShot()
 		SnapShot->sampleNumber = sampleCounter;
 		sampleCounter++;
 
-	//printTheList();
-	
-
 	// in order not to enter new snapshot to the list every time i use TwentySnapShots function
 	return SnapShot;
-	//releaseProcessList();
-	//releaseDLLList();
-	//releaseSnapShotList();
+	
 }
 void TwentySnapShots() {
 	t_SnapShot* origSnapShot = OneSnapShot();
@@ -134,34 +129,21 @@ void TwentySnapShots() {
 					currentOrigProcess->next = newProcessP;
 					newProcessP->prev = currentOrigProcess;
 					newProcessP->next = NULL;
+					origSnapShot->processCounter++;
+					break;
 				}
 				currentOrigProcess = currentOrigProcess->next;
 			}
 
 			newProcess = newProcess->next;
 		}
-
+		resetSnapShot(newTempSnapshot);
 		Sleep(1000);
 		printf("%d\n",i);
 	}
 	buildSnapShotList(origSnapShot);
 }
 
-void printTheList() {
-	int d = 1;
-	t_Process* curr = head;
-	t_DLL* temp = Dhead;
-	while (curr) {
-		printf("Process ID-%d\nProcess Name-%s\nProcess Memory-%zu\n%zu\n%zu\n%zu\n%zu\nProcess DLL List-", curr->ProcessID, curr->ProcessName, curr->pmc.PageFaultCount, curr->pmc.WorkingSetSize, curr->pmc.QuotaPagedPoolUsage, curr->pmc.QuotaPeakPagedPoolUsage, curr->pmc.PagefileUsage);
-		while (curr->ProcessDLLList)
-		{
-			printf("%d:%s\n",d, curr->ProcessDLLList->DLLName);
-			curr->ProcessDLLList = curr->ProcessDLLList->next;
-			d++;
-		}
-		curr = curr->next;
-	}
-}
 
 void buildSnapShotList(t_SnapShot* snapShot)
 {
@@ -178,6 +160,39 @@ void buildSnapShotList(t_SnapShot* snapShot)
 		Stail = addSnapShot;
 	}
 	sampleCounter++;
+
+}
+void printDllList(t_DLL* dll) // a function that i was checking if dll has been added
+{
+	t_DLL* temp = dll;
+	int i = 1;
+	printf("Dll list:\n");
+	while (temp)
+	{
+		printf("%d. %s\n", i, temp->DLLName);
+		i++;
+		temp = temp->next;
+	}
+}
+
+
+void printProcessList(t_Process* proc) // a function that i was checking if process has been added
+{
+	t_Process* temp = proc;
+	int i = 0;
+	while (temp)
+	{
+		i++;
+
+		printf("%d Process Id: %d Process: ", i, temp->ProcessID);
+		printf("%s\n\n", temp->ProcessName);
+		if (temp->ProcessDLLList)
+		{
+			printDllList(temp->ProcessDLLList);
+		}
+
+		temp = temp->next;
+	}
 
 }
 

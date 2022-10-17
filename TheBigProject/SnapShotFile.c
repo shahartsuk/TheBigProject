@@ -23,7 +23,7 @@ void EnterSnapShotListToFile()
 
 	t_DLL* dllList =NULL;
 
-	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "w");
+	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "wb");
 	if (!f)
 	{
 		LogError(strerror(GetLastError()));
@@ -70,46 +70,52 @@ void UploadSnapShotListFromFile()
 	int read = 0;
 	t_headerOfFile headerFile;
 
-	t_SnapShot* currSnapShot = (t_SnapShot*)malloc(sizeof(t_SnapShot));
-	if (!currSnapShot)
-	{
-		LogError(strerror(GetLastError()));
-		exit(1);
-	}
+	t_SnapShot* currSnapShot = NULL;
 
-	t_Process* currProcess = (t_Process*)malloc(sizeof(t_Process));
-	if (!currProcess)
-	{
-		LogError(strerror(GetLastError()));
-		exit(1);
-	}
+	t_Process* currProcess = NULL;
 
-	t_DLL* currDLL = (t_DLL*)malloc(sizeof(t_DLL));
-	if (!currDLL)
-	{
-		LogError(strerror(GetLastError()));
-		exit(1);
-	}
+	t_DLL* currDLL = NULL;
 
 
-	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "r");
+	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "rb");
 	if (!f)
 	{
 		LogError(strerror(GetLastError()));
-		exit(1);
+		// If the file is accidentally deleted
+		printf("No file found");
+		return;
 	}
 
 	read = fread(&headerFile, sizeof(t_headerOfFile), 1, f);
 
+	// ItemsCount is the number of the snapshots
 	for (int i = 0; i < headerFile.ItemsCount; i++)
 	{
+		currSnapShot = (t_SnapShot*)malloc(sizeof(t_SnapShot));
+		if (!currSnapShot)
+		{
+			LogError(strerror(GetLastError()));
+			exit(1);
+		}
 			read = fread(currSnapShot, sizeof(t_SnapShot), 1, f);
 			for (int p = 0; p < currSnapShot->processCounter; p++)
 			{
+				currProcess = (t_Process*)malloc(sizeof(t_Process));
+				if (!currProcess)
+				{
+					LogError(strerror(GetLastError()));
+					exit(1);
+				}
 				read = fread(currProcess, sizeof(t_Process), 1, f);
 
 				for (int d = 0; d < currProcess->DLLNumber; d++)
 				{
+					currDLL = (t_DLL*)malloc(sizeof(t_DLL));
+					if (!currDLL)
+					{
+						LogError(strerror(GetLastError()));
+						exit(1);
+					}
 					read = fread(currDLL, sizeof(t_DLL), 1, f);
 					buildDllList(currDLL->DLLName);
 				}

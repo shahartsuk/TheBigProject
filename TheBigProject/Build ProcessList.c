@@ -3,7 +3,6 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <psapi.h>
-#include <time.h>
 #include"Structs.h"
 #include"LogFile.h"
 #include"Build ProcessList.h"
@@ -19,14 +18,6 @@ int PCounter=0;
 
 void ProcessMemoryInfo(DWORD processID)
 {
-	char strFileName[1000];
-	time_t t;
-	time(&t);
-
-	struct tm* timeInfo;
-
-	timeInfo = localtime(&t);
-
 	int DLLCounter=0;
 	int i = 0;
 	HANDLE hProcess;
@@ -47,7 +38,6 @@ void ProcessMemoryInfo(DWORD processID)
 		TCHAR DLLName[MAX_PATH];
 		char DllName[MAX_PATH];
 		char ProcessName[MAX_PATH];
-		char regularCharArr[MAX_PATH];
 		size_t numConverted;
 		// get the name of the process
 		if (GetModuleFileNameEx(hProcess, 0, Buffer, MAX_PATH))
@@ -87,15 +77,14 @@ void ProcessMemoryInfo(DWORD processID)
 					// Convert wChar to regular char array (string)
 					size_t numConverted;
 					wcstombs_s(&numConverted, DllName, MAX_PATH, DLLName, MAX_PATH);
-					if (strlen(DllName ) <= 1)
+					if (strlen(DllName ) > 1)
 					{
-						DLLCounter--;
-						break;
-					}
 					DLLCounter++;
+			        buildDllList(DllName);
+					}
 					
 				}
-			buildDllList(DllName);
+
 			}
 		}
 
@@ -105,13 +94,6 @@ void ProcessMemoryInfo(DWORD processID)
 }
 int GetProcessInfo()
 {
-	char strFileName[1000];
-	time_t t;
-	time(&t);
-
-	struct tm* timeInfo;
-
-	timeInfo = localtime(&t);
 	//Get processes
 	//Receive all process ID
 

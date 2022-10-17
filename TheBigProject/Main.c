@@ -31,7 +31,7 @@ int main()
     char userResponses = NULL;
     while (userResponses != 'Q')
     {
-        printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. B-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. C-Upload from File\n8. Q-Quit\n");
+        printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. B-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. U-Upload from File\n8. Q-Quit\n");
         scanf(" %c", &userResponses);
         switch (userResponses)
         {
@@ -47,13 +47,14 @@ int main()
             break;
              case 'B':
                  sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
-                 printf("Please wait for twenty seconds");
+                 printf("Please wait for twenty seconds\n");
                  strcpy(strEvents, "Taking twenty snapshots");
                  LogEvent(strEvents);
                  TwentySnapShots();
                  head = tail = NULL;
                  Dhead = Dtail = NULL;
                  strcpy(strEvents, "Twenty snapshots had finished");
+                // printProcessList(Shead->process);
             break;
             case 'L':
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
@@ -77,7 +78,7 @@ int main()
             }
             break;
          case 'R':
-         releaseSnapShotList();
+             resetCollection();
              break;
          case 'S':
             if (!Shead)
@@ -94,24 +95,19 @@ int main()
             }
             break;
          case 'U':
-             if (!Shead)
-             {
-                 printf("There is no SnapShots in the list pleas try other options");
-             }
-             else
-             {
+            
                  sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                  strcpy(strEvents, "Starting to upload snapshot list from file");
                  LogEvent(strEvents);
                  UploadSnapShotListFromFile();
                  strcpy(strEvents, "Done uploading snapshot list from file");
-             }
+
              break;
             case 'Q':
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to delet snapshot list");
                 LogEvent(strEvents);
-                releaseSnapShotList();
+                resetCollection();
                 strcpy(strEvents, "Done deleting snapshot list");
                 break; 
         default:
