@@ -131,6 +131,7 @@
     <ClCompile Include="averageProcessMemory.h" />
     <ClCompile Include="Build SnapShot.c" />
     <ClCompile Include="DLLDictionary.c" />
+    <ClCompile Include="GenerateHTML.c" />
     <ClCompile Include="LongSnapShot.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LogFile.c" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Build ProcessList.h" />
     <ClInclude Include="Build SnapShot.h" />
     <ClInclude Include="DLLDictionary.h" />
+    <ClInclude Include="GenerateHTML.h" />
     <ClInclude Include="LogFile.h" />
     <ClInclude Include="LongSnapShot.h" />
     <ClInclude Include="MemoryFree.h" />

@@ -15,7 +15,7 @@
 
 	unsigned long long sumAllSnapShots = 0;
 
-long averageProcessMemory(t_SnapShot* currSnapShot)
+ long averageProcessMemory(t_SnapShot* currSnapShot)
 {
 	t_SnapShot* snapShot=currSnapShot;
 	t_Process* currProcess = snapShot->process;
@@ -32,7 +32,39 @@ long averageProcessMemory(t_SnapShot* currSnapShot)
 		}
 		snapShot = snapShot->next;
 	}
-	avg = sum1SnapShot / snapShot->processCounter;
+	avg = (long)(sum1SnapShot / snapShot->processCounter);
 	sumAllSnapShots += sum1SnapShot;
+	if (snapShot->next == NULL)
+	{
+		sumAllSnapShots / ProcessCounter/ snapShot->processCounter;
+	}
+	return avg;
 }
+ void buildProcessDictionaryList(t_Process* newProcess)
+ {
+	 ProcessCounter++;
+	 t_PDictionary* addProcessID = (t_PDictionary*)malloc(sizeof(t_PDictionary));
+	 if (!addProcessID)
+	 {
+		 LogError(strerror(GetLastError()));
+		 exit(1);
+	 }
+	 t_Process* newItem = newProcess;
+	 addProcessID->ProcessID = newItem->ProcessID;
+	 addProcessID->next = addProcessID->prev = NULL;
 
+	 if (!PDictionaryHead)
+	 {
+		 PDictionaryHead = addProcessID;
+		 PDictionaryTail = addProcessID;
+		 return;
+	 }
+	 else
+	 {
+		 addProcessID->prev = PDictionaryTail;
+		 PDictionaryTail->next = addProcessID;
+		 PDictionaryTail = addProcessID;
+		 return;
+	 }
+
+ }

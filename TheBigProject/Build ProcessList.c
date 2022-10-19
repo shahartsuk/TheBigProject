@@ -77,10 +77,10 @@ void ProcessMemoryInfo(DWORD processID)
 					// Convert wChar to regular char array (string)
 					size_t numConverted;
 					wcstombs_s(&numConverted, DllName, MAX_PATH, DLLName, MAX_PATH);
-					if (strlen(DllName ) > 1)
+					if (strlen(DllName ) > 1&& strstr(DllName, ".dll") || strstr(DllName, ".DLL"))
 					{
-					DLLCounter++;
-			        buildDllList(DllName);
+						DLLCounter++;
+						buildDllList(DllName);
 					}
 					
 				}
@@ -166,6 +166,8 @@ void buildProcessData(int PID, char PName[MAX_PATH], int DLLNumber, PROCESS_MEMO
 	curr->pmc.PagefileUsage = ProcessMemory.PagefileUsage;
 	curr->next = curr->prev = NULL;
 	PCounter++;
+
+	Dhead = Dtail = NULL;
 
 	buildProcessList(curr);
 }

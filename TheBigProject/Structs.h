@@ -40,3 +40,9 @@ typedef struct DLLDictionary {
 	struct DLLDictionary* next;
 	struct DLLDictionary* prev;
 }t_DLLDictionary;
+
+typedef struct ProcessDictionary {
+	int ProcessID;
+	struct ProcessDictionary* next;
+	struct ProcessDictionary* prev;
+}t_PDictionary;

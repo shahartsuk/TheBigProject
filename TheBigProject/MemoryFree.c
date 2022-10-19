@@ -1,19 +1,9 @@
-#include <stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include <Windows.h>
-#include <psapi.h>
-#include <time.h>
-#include"Structs.h"
-#include"LogFile.h"
-#include"Build ProcessList.h"
-#include"Build SnapShot.h"
+
 #include"MemoryFree.h"
-#include"DLLDictionary.h"
 #pragma warning (disable:4996)
 
-
-void resetSnapShot(t_SnapShot* snapShotList) { // deletes one snapshot
+// deletes one snapshot
+void resetSnapShot(t_SnapShot* snapShotList) { 
 	t_SnapShot* currentSnapShot;
 	t_Process* currentPorcess;
 	t_DLL* currentDLL;
@@ -37,7 +27,7 @@ void resetSnapShot(t_SnapShot* snapShotList) { // deletes one snapshot
 	snapShotList = NULL;
 }
 
-void resetCollection() { // deletes all list
+void releaseTheCollection() { // deletes all list
 	t_SnapShot* currentSnapShot;
 	t_Process* currentPorcess;
 	t_DLL* currentDLL;
@@ -62,7 +52,6 @@ void resetCollection() { // deletes all list
 		Shead = Shead->next;
 		free(currentSnapShot);
 	}
-	addToList(NULL);
 }
 
 void releaseDLLDictionaryList()

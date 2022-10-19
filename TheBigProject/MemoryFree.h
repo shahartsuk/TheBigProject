@@ -4,9 +4,12 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <psapi.h>
+#include <time.h>
 #include"Structs.h"
+#include"LogFile.h"
+#include"Build ProcessList.h"
+#include"Build SnapShot.h"
+#include"DLLDictionary.h"
 
-void releaseProcessList();
-void releaseSnapShotList();
-void releaseDLLList();
-void releaseDLLDictionaryList();
+void releaseTheCollection();
+void resetSnapShot(t_SnapShot*);

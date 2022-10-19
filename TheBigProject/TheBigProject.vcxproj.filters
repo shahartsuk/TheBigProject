@@ -19,6 +19,9 @@
     <Filter Include="Source Files\TheMain">
       <UniqueIdentifier>{63af363e-ef4c-45c4-8108-d68618a00d77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HTML">
+      <UniqueIdentifier>{ef83b266-8026-48e8-a86b-2d0dd1400e2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogFile.c">
@@ -36,20 +39,23 @@
     <ClCompile Include="LongSnapShot.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
-    <ClCompile Include="DLLDictionary.c">
-      <Filter>Source Files\MyUtilities</Filter>
-    </ClCompile>
     <ClCompile Include="averageProcessMemory.h">
       <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="averageProcessMemory.c">
-      <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
     <ClCompile Include="MemoryFree.c">
       <Filter>Source Files\MyUtilities</Filter>
     </ClCompile>
     <ClCompile Include="SnapShotFile.c">
       <Filter>Source Files\MyUtilities</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerateHTML.c">
+      <Filter>Source Files\HTML</Filter>
+    </ClCompile>
+    <ClCompile Include="DLLDictionary.c">
+      <Filter>Source Files\HTML</Filter>
+    </ClCompile>
+    <ClCompile Include="averageProcessMemory.c">
+      <Filter>Source Files\HTML</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SnapShotFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateHTML.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

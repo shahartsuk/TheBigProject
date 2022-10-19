@@ -15,6 +15,7 @@
 
 int main()
 {
+    char userResponses = NULL;
     char strFileName[1000];
     char strEvents[1000];
     time_t t;
@@ -28,10 +29,9 @@ int main()
     strcpy(strEvents, "System Is Starting");
     LogEvent(strEvents);
 
-    char userResponses = NULL;
     while (userResponses != 'Q')
     {
-        printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. B-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. U-Upload from File\n8. Q-Quit\n");
+        printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. T-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. U-Upload from File\n8. Q-Quit\n");
         scanf(" %c", &userResponses);
         switch (userResponses)
         {
@@ -41,20 +41,15 @@ int main()
            LogEvent(strEvents);
             OneSnapShot();
             buildSnapShotList(OneSnapShot());
-            head = tail = NULL;
-            Dhead = Dtail = NULL;
             strcpy(strEvents, "One snapshot had finished");
             break;
-             case 'B':
+             case 'T':
                  sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                  printf("Please wait for twenty seconds\n");
                  strcpy(strEvents, "Taking twenty snapshots");
                  LogEvent(strEvents);
                  TwentySnapShots();
-                 head = tail = NULL;
-                 Dhead = Dtail = NULL;
                  strcpy(strEvents, "Twenty snapshots had finished");
-                // printProcessList(Shead->process);
             break;
             case 'L':
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
@@ -73,12 +68,18 @@ int main()
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to build DLL Dictionary");
                 LogEvent(strEvents);
+                // I have to reset this variable every time because I sum up all the memory of the Snapshots in it every time and then divide
+                sumAllSnapShots = 0;
                 searchForAllTheDLLS();
                 strcpy(strEvents, "Done building DLL Dictionary");
             }
             break;
          case 'R':
-             resetCollection();
+             releaseTheCollection();
+             // have to give the lists NULL so i can keep with the program
+             Shead = Stail = NULL;
+             head = tail = NULL;
+             Dhead = Dtail = NULL;
              break;
          case 'S':
             if (!Shead)
@@ -107,7 +108,7 @@ int main()
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to delet snapshot list");
                 LogEvent(strEvents);
-                resetCollection();
+                releaseTheCollection();
                 strcpy(strEvents, "Done deleting snapshot list");
                 break; 
         default:

@@ -42,6 +42,9 @@ t_SnapShot* OneSnapShot()
 		SnapShot->sampleNumber = sampleCounter;
 		sampleCounter++;
 
+		head = tail = NULL;
+		Dhead = Dtail = NULL;
+
 	// in order not to enter new snapshot to the list every time i use TwentySnapShots function
 	return SnapShot;
 	
@@ -87,7 +90,7 @@ void TwentySnapShots() {
 						currentOrigProcessDll = currentOrigProcess->ProcessDLLList;
 						while (currentOrigProcessDll)
 						{
-							if (strncmp(currentOrigProcessDll->DLLName, newProcessDll->DLLName, MAX_PATH) == 0)
+							if (strcmp(currentOrigProcessDll->DLLName, newProcessDll->DLLName) == 0)
 							{
 								break;
 							}

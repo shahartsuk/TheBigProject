@@ -1,48 +1,27 @@
-﻿  Build SnapShot.c
-  DLLDictionary.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\DLLDictionary.c(35,30): warning C4020: 'averageProcessMemory': too many actual parameters
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\DLLDictionary.c(39,39): warning C4133: 'function': incompatible types - from 't_Process *' to 't_SnapShot *'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\DLLDictionary.c(39,40): warning C4020: 'averageProcessMemory': too many actual parameters
-  LongSnapShot.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\LongSnapShot.c(33,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
-  Main.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(26,26): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(26,26): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(26,26): message : the missing variadic argument 6 is required by format string '%s'
+﻿  Main.c
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(27,26): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(27,26): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(27,26): message : the missing variadic argument 6 is required by format string '%s'
 C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(39,34): warning C4473: 'sprintf' : not enough arguments passed for format string
 C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(39,34): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
 C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(39,34): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(49,39): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(49,39): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(49,39): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(60,38): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(60,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(60,38): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(73,38): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(73,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(73,38): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(90,38): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(90,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(90,38): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(99,39): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(99,39): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(99,39): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(107,38): warning C4473: 'sprintf' : not enough arguments passed for format string
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(107,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(107,38): message : the missing variadic argument 6 is required by format string '%s'
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(31,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
-  MemoryFree.c
-  SnapShotFile.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(44,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(48,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(52,12): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(56,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(87,9): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(97,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(106,12): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\SnapShotFile.c(116,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  averageProcessMemory.c
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\averageProcessMemory.c(35,21): warning C4244: '=': conversion from 'unsigned __int64' to 'long', possible loss of data
-  Generating Code...
-C:\Users\shaha\source\repos\TheBigProject\TheBigProject\averageProcessMemory.c(37): warning C4716: 'averageProcessMemory': must return a value
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(47,39): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(47,39): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(47,39): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(55,38): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(55,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(55,38): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(68,38): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(68,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(68,38): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(91,38): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(91,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(91,38): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(100,39): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(100,39): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(100,39): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(108,38): warning C4473: 'sprintf' : not enough arguments passed for format string
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(108,38): message : placeholders and their parameters expect 6 variadic arguments, but 5 were provided
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(108,38): message : the missing variadic argument 6 is required by format string '%s'
+C:\Users\shaha\source\repos\TheBigProject\TheBigProject\Main.c(18,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
   TheBigProject.vcxproj -> C:\Users\shaha\source\repos\TheBigProject\x64\Debug\TheBigProject.exe

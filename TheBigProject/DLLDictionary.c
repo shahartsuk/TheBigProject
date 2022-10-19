@@ -1,24 +1,19 @@
-#include <stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include <Windows.h>
-#include <psapi.h>
-#include <conio.h>
-#include <time.h>
-#include"Structs.h"
-#include"LogFile.h"
-#include"Build ProcessList.h"
-#include"Build SnapShot.h"
 #include"DLLDictionary.h"
-#include"averageProcessMemory.h"
 #pragma warning (disable:4996)
 
 t_DLLDictionary* DDictionaryHead = NULL;
 t_DLLDictionary* DDictionaryTail = NULL;
 
+t_PDictionary* PDictionaryHead = NULL;
+t_PDictionary* PDictionaryTail = NULL;
+
+int DLLCounter = 0;
+int ProcessCounter = 0;
+
 // search all the process that use the same dll in the snapshot list.
 void searchForAllTheDLLS()
 {
+	t_PDictionary* currProcessList = NULL;
 
 	t_DLLDictionary* currDLLList = NULL;
 
@@ -29,14 +24,29 @@ void searchForAllTheDLLS()
 	t_DLL* currentProcessDll = currentProcess->ProcessDLLList;
 
 	buildDLLDictionaryList(currentProcessDll);
+	buildProcessDictionaryList(currentProcess);
 
 	while (currentSList)
 	{
-		averageProcessMemory(NULL, currentSList);
+		// Already ran through the whole list so 
+		averageProcessMemory(currentSList);
 		currentProcess = currentSList->process;
 		while (currentProcess)
 		{
-			averageProcessMemory(currentProcess,NULL);
+			currProcessList = PDictionaryHead;
+			while (currProcessList)
+			{
+				if (currProcessList->ProcessID == currentProcess->ProcessID)
+				{
+					break;
+				}
+				else if (currProcessList == PDictionaryTail)
+				{
+					// to know how many processes i have in the program
+					buildProcessDictionaryList(currentProcess);
+				}
+				currProcessList = currProcessList->next;
+			}
 			currentProcessDll = currentProcess->ProcessDLLList;
 			while (currentProcessDll)
 			{
@@ -66,6 +76,8 @@ void searchForAllTheDLLS()
 //create the list of all the dll i have in the project
 void buildDLLDictionaryList(t_DLL* newDLL)
 {
+	// to know how many DLL'S i have in the program
+	DLLCounter++;
 	t_DLLDictionary* addDLL = (t_DLLDictionary*)malloc(sizeof(t_DLLDictionary));
 	if (!addDLL)
 	{
@@ -157,3 +169,4 @@ void addToDictionary(t_DLLDictionary* curr, t_Process* newItem)
 	currItem->ProcessList = addProcess;
 	return;
 }
+
