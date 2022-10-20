@@ -185,7 +185,6 @@ void buildProcessList(t_Process* curr)
 		tail = curr;
 	}
 	Dhead = Dtail = NULL;
-
 }
 
 

@@ -15,6 +15,7 @@
 
 int main()
 {
+    t_SnapShot* snapShot=NULL;
     char userResponses = NULL;
     char strFileName[1000];
     char strEvents[1000];
@@ -24,7 +25,7 @@ int main()
     struct tm* timeInfo;
 
     timeInfo = localtime(&t);
-    sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+    sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
     Log_Init(strFileName);
     strcpy(strEvents, "System Is Starting");
     LogEvent(strEvents);
@@ -36,15 +37,15 @@ int main()
         switch (userResponses)
         {
         case 'A':
-            sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+            sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
            strcpy(strEvents, "Taking one snapshot");
            LogEvent(strEvents);
-            OneSnapShot();
-            buildSnapShotList(OneSnapShot());
+           snapShot = OneSnapShot();
+            buildSnapShotList(snapShot);
             strcpy(strEvents, "One snapshot had finished");
             break;
              case 'T':
-                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                  printf("Please wait for twenty seconds\n");
                  strcpy(strEvents, "Taking twenty snapshots");
                  LogEvent(strEvents);
@@ -52,7 +53,7 @@ int main()
                  strcpy(strEvents, "Twenty snapshots had finished");
             break;
             case 'L':
-                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Taking long snapshot");
                 LogEvent(strEvents);
                 LongSnapShot();
@@ -65,7 +66,7 @@ int main()
             }
             else
             {
-                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to build DLL Dictionary");
                 LogEvent(strEvents);
                 // I have to reset this variable every time because I sum up all the memory of the Snapshots in it every time and then divide
@@ -88,7 +89,7 @@ int main()
             }
             else
             {
-                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to enter snapshot list to file");
                 LogEvent(strEvents);
                 EnterSnapShotListToFile();
@@ -97,7 +98,7 @@ int main()
             break;
          case 'U':
             
-                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                  strcpy(strEvents, "Starting to upload snapshot list from file");
                  LogEvent(strEvents);
                  UploadSnapShotListFromFile();
@@ -105,7 +106,7 @@ int main()
 
              break;
             case 'Q':
-                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d-%s", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
+                sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to delet snapshot list");
                 LogEvent(strEvents);
                 releaseTheCollection();

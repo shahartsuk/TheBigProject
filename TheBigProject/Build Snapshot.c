@@ -1,12 +1,3 @@
-#include <stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include <Windows.h>
-#include <psapi.h>
-#include <time.h>
-#include"Structs.h"
-#include"LogFile.h"
-#include"Build ProcessList.h"
 #include"Build SnapShot.h"
 #pragma warning (disable:4996)
 
@@ -27,6 +18,7 @@ t_SnapShot* OneSnapShot()
 
 	timeInfo = localtime(&t);
 	GetProcessInfo();
+	sortingProcessList();
 	t_SnapShot* SnapShot = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 	if (!SnapShot)
 	{

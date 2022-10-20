@@ -57,6 +57,9 @@
     <ClCompile Include="averageProcessMemory.c">
       <Filter>Source Files\HTML</Filter>
     </ClCompile>
+    <ClCompile Include="Sorting.c">
+      <Filter>Source Files\HTML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogFile.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GenerateHTML.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

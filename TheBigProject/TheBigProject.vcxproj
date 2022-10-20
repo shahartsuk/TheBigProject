@@ -138,6 +138,7 @@
     <ClCompile Include="Build ProcessList.c" />
     <ClCompile Include="MemoryFree.c" />
     <ClCompile Include="SnapShotFile.c" />
+    <ClCompile Include="Sorting.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Build ProcessList.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="LongSnapShot.h" />
     <ClInclude Include="MemoryFree.h" />
     <ClInclude Include="SnapShotFile.h" />
+    <ClInclude Include="Sorting.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

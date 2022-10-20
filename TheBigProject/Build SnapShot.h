@@ -4,8 +4,11 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <psapi.h>
+#include <time.h>
 #include"Structs.h"
-#include"MemoryFree.h"
+#include"LogFile.h"
+#include"Build ProcessList.h"
+#include"Sorting.h"
 
 extern t_SnapShot* Shead;
 extern t_SnapShot* Stail;

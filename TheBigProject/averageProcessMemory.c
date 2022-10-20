@@ -22,24 +22,24 @@
 	unsigned long long sum1SnapShot=0;
 	long avg = 0;
 
-	while(snapShot)
+	while (currProcess)
 	{
-		while (currProcess)
-		{
-		sum1SnapShot += currProcess->pmc.WorkingSetSize;
+	sum1SnapShot += currProcess->pmc.WorkingSetSize;
 
-		currProcess = currProcess->next;
-		}
-		snapShot = snapShot->next;
+	currProcess = currProcess->next;
 	}
-	avg = (long)(sum1SnapShot / snapShot->processCounter);
+
+	avg = (long)sum1SnapShot / snapShot->processCounter;
+
 	sumAllSnapShots += sum1SnapShot;
-	if (snapShot->next == NULL)
+	if (snapShot == Stail)
 	{
-		sumAllSnapShots / ProcessCounter/ snapShot->processCounter;
+		sumAllSnapShots= sumAllSnapShots / ProcessCounter/ snapShot->processCounter;
 	}
 	return avg;
 }
+
+ // counting the processesID in the snapshot list
  void buildProcessDictionaryList(t_Process* newProcess)
  {
 	 ProcessCounter++;
