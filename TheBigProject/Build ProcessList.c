@@ -77,7 +77,7 @@ void ProcessMemoryInfo(DWORD processID)
 					// Convert wChar to regular char array (string)
 					size_t numConverted;
 					wcstombs_s(&numConverted, DllName, MAX_PATH, DLLName, MAX_PATH);
-					if (strlen(DllName ) > 1&& strstr(DllName, ".dll") || strstr(DllName, ".DLL"))
+					if (strstr(DllName, ".dll") || strstr(DllName, ".DLL"))
 					{
 						DLLCounter++;
 						buildDllList(DllName);
@@ -184,7 +184,6 @@ void buildProcessList(t_Process* curr)
 		tail->next = curr;
 		tail = curr;
 	}
-	Dhead = Dtail = NULL;
 }
 
 

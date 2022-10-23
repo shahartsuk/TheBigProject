@@ -9,6 +9,5 @@
 #include"LogFile.h"
 #include"DLLDictionary.h"
 
-extern unsigned long long sumAllSnapShots;
-
-long averageProcessMemory(t_SnapShot*);
+unsigned long long averageProcessMemory(t_SnapShot*);
+unsigned long long averageSnapShotMemory();

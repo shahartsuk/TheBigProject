@@ -23,7 +23,6 @@ void searchForAllTheDLLS()
 
 	t_DLL* currentProcessDll = currentProcess->ProcessDLLList;
 
-	buildDLLDictionaryList(currentProcessDll);
 	buildProcessDictionaryList(currentProcess);
 
 	while (currentSList)
@@ -48,6 +47,12 @@ void searchForAllTheDLLS()
 				currProcessList = currProcessList->next;
 			}
 			currentProcessDll = currentProcess->ProcessDLLList;
+			if (!DDictionaryHead && currentProcessDll != NULL)
+			{
+				buildDLLDictionaryList(currentProcessDll);
+			}
+			else
+			{
 			while (currentProcessDll)
 			{
 				currDLLList = DDictionaryHead;
@@ -64,6 +69,7 @@ void searchForAllTheDLLS()
 					currDLLList = currDLLList->next;
 				}
 				currentProcessDll = currentProcessDll->next;
+			}
 			}
 			currentProcess = currentProcess->next;
 		}

@@ -14,7 +14,7 @@
 
 void GenerateHTML();
 
-void HomePageHTML();
-void SamplePageHTML();
-void DLLDictionaryPageHTML();
-void AboutMePageHTML();
+void HomePageHTML(char[], char[], char[]);
+void SamplePageHTML(char[], char[], char[]);
+void DLLDictionaryPageHTML(char[], char[], char[]);
+void AboutMePageHTML(char[], char[]);

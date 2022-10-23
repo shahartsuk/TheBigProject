@@ -11,6 +11,7 @@
 #include"DLLDictionary.h"
 #include"SnapShotFile.h"
 #include"MemoryFree.h"
+#include"GenerateHTML.h"
 #pragma warning (disable:4996)
 
 int main()
@@ -59,21 +60,17 @@ int main()
                 LongSnapShot();
                 strcpy(strEvents, "Long snapshot had finished");
             break;
-        case 'G':       
-            if (!Shead)
-            {
-                printf("There is no SnapShots in the list pleas try other options");
-            }
-            else
-            {
+        case 'G':        
                 sprintf(strFileName, "C:\\Users\\shaha\\source\\repos\\TheBigProject\\LogFiles\\FileLog %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
                 strcpy(strEvents, "Starting to build DLL Dictionary");
                 LogEvent(strEvents);
                 // I have to reset this variable every time because I sum up all the memory of the Snapshots in it every time and then divide
-                sumAllSnapShots = 0;
+                if (Shead)
+                {
                 searchForAllTheDLLS();
+                }
+                GenerateHTML();
                 strcpy(strEvents, "Done building DLL Dictionary");
-            }
             break;
          case 'R':
              releaseTheCollection();

@@ -35,7 +35,6 @@ t_SnapShot* OneSnapShot()
 		sampleCounter++;
 
 		head = tail = NULL;
-		Dhead = Dtail = NULL;
 
 	// in order not to enter new snapshot to the list every time i use TwentySnapShots function
 	return SnapShot;

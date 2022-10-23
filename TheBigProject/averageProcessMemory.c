@@ -13,14 +13,50 @@
 #include"averageProcessMemory.h"
 #pragma warning (disable:4996)
 
-	unsigned long long sumAllSnapShots = 0;
-
- long averageProcessMemory(t_SnapShot* currSnapShot)
+// Calculates the average memory of the entire list of snapshots
+unsigned long long averageSnapShotMemory()
 {
-	t_SnapShot* snapShot=currSnapShot;
-	t_Process* currProcess = snapShot->process;
+	unsigned long long avgAllSnapShots = 0;
+	int oneSnapProcessCounter = 0;
+
+	t_SnapShot* snapShotList = Shead;
+	if (!Shead)
+	{
+		return;
+	}
+	t_Process* currProcess = NULL;
+
+	while (snapShotList)
+	{
+		currProcess = snapShotList->process;
+		while (currProcess)
+		{
+			avgAllSnapShots += currProcess->pmc.WorkingSetSize;
+			currProcess = currProcess->next;
+		}
+		oneSnapProcessCounter += snapShotList->processCounter;
+		snapShotList = snapShotList->next;
+	}
+
+	avgAllSnapShots = avgAllSnapShots / oneSnapProcessCounter;
+	return 	avgAllSnapShots;
+}
+
+ unsigned long long averageProcessMemory(t_SnapShot* SnapShot)
+{
+	t_SnapShot* currSnapShot= SnapShot;
+	t_Process* currProcess = NULL;
+	if (currSnapShot)
+	{
+	 currProcess = currSnapShot->process;
+	}
+	else
+	{
+		return;
+	}
 	unsigned long long sum1SnapShot=0;
-	long avg = 0;
+	unsigned long long avg = 0;
+	int numOfProcess=0;
 
 	while (currProcess)
 	{
@@ -29,13 +65,8 @@
 	currProcess = currProcess->next;
 	}
 
-	avg = (long)sum1SnapShot / snapShot->processCounter;
+	avg = sum1SnapShot / currSnapShot->processCounter;
 
-	sumAllSnapShots += sum1SnapShot;
-	if (snapShot == Stail)
-	{
-		sumAllSnapShots= sumAllSnapShots / ProcessCounter/ snapShot->processCounter;
-	}
 	return avg;
 }
 
