@@ -1,5 +1,6 @@
 * {
   margin: 0, auto;
+  box-sizing: border-box;
 }
 body {
   background: rgb(85, 202, 238);
@@ -8,7 +9,6 @@ body {
     rgb(85, 202, 238) 0%,
     rgba(45, 101, 253, 1) 100%
   );
-  width: 100vw;
   display: flex;
   flex-direction: column;
 }
@@ -25,7 +25,6 @@ header {
 .BlackLine {
   width: 100%;
   height: 20px;
-  margin-left: -10px;
   background-color: black;
 }
 a {
@@ -43,14 +42,21 @@ a {
 .TableContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   margin-top: 30px;
+  width: 95%;
 }
 .DLLName {
-  overflow-x: scroll;
-  width: 200px;
+  overflow-x: auto;
 }
-table,
+table {
+  width: 90%;
+  table-layout: fixed;
+  white-space: nowrap;
+  margin: auto;
+  border: 1px solid;
+  border-color: black;
+  border-collapse: collapse;
+}
 tr,
 th,
 td {
@@ -59,19 +65,17 @@ td {
   border-collapse: collapse;
   padding: 8px;
   text-align: center;
-}
-th,
-td {
-  width: 100px;
+  overflow-x: auto;
 }
 .Sample {
   font-size: x-large;
   margin-bottom: 15px;
+  margin-left: 33px;
   font-family: "DynaPuff", cursive;
 }
 .DLL {
   font-size: x-large;
   margin-bottom: 15px;
+  margin-left: 33px;
   font-family: "DynaPuff", cursive;
 }
-
