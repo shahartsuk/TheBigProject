@@ -10,6 +10,7 @@
 #include"Build ProcessList.h"
 #include"Build SnapShot.h"
 #include"MemoryFree.h"
+#include"averageProcessMemory.h"
 #pragma warning (disable:4996)
 
 void GenerateHTML();

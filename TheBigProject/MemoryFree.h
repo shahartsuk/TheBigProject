@@ -13,3 +13,5 @@
 
 void releaseTheCollection();
 void resetSnapShot(t_SnapShot*);
+void releaseDLLDictionaryList();
+void releaseProcessDictionaryList();

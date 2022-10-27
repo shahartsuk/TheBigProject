@@ -26,9 +26,7 @@ void searchForAllTheDLLS()
 	buildProcessDictionaryList(currentProcess);
 
 	while (currentSList)
-	{
-		// Already ran through the whole list so 
-		averageProcessMemory(currentSList);
+	{ 
 		currentProcess = currentSList->process;
 		while (currentProcess)
 		{
@@ -58,6 +56,8 @@ void searchForAllTheDLLS()
 				currDLLList = DDictionaryHead;
 				while (currDLLList)
 				{
+					if (strstr(currentProcessDll->DLLName, ".dll") || strstr(currentProcessDll->DLLName, ".DLL"))
+					{
 					if (strcmp(currentProcessDll->DLLName, currDLLList->DLLName) == 0)
 					{
 						break;
@@ -65,6 +65,7 @@ void searchForAllTheDLLS()
 					else if (currDLLList== DDictionaryTail)
 					{
 						buildDLLDictionaryList(currentProcessDll);
+					}
 					}
 					currDLLList = currDLLList->next;
 				}

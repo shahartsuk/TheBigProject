@@ -23,7 +23,7 @@ void EnterSnapShotListToFile()
 
 	t_DLL* dllList =NULL;
 
-	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "wb");
+	FILE* f = fopen("C:\\Users\\97254\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "wb");
 	if (!f)
 	{
 		LogError(strerror(GetLastError()));
@@ -77,7 +77,7 @@ void UploadSnapShotListFromFile()
 	t_DLL* currDLL = NULL;
 
 
-	FILE* f = fopen("C:\\Users\\shaha\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "rb");
+	FILE* f = fopen("C:\\Users\\97254\\source\\repos\\TheBigProject\\SnapShotFolder\\SnapShotFile.bin", "rb");
 	if (!f)
 	{
 		LogError(strerror(GetLastError()));

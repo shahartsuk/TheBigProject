@@ -47,9 +47,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-.discord-icon {
-  color: rgba(114, 137, 218);
-}
 .youtube-icon {
   display: flex;
   color: red;
@@ -59,6 +56,6 @@ main {
   height: 50px;
   position: absolute;
   background-color: white;
-  bottom: 270px;
+  bottom: 80px;
   z-index: -1;
 }

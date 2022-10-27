@@ -1,22 +1,18 @@
-#include <stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include <time.h>
+
 #include"LogFile.h"
-#include <Windows.h>
 #pragma warning (disable:4996)
 
 char logFileName[1000];
 
-void Log_Init(char fileName[1000])
+void Log_Init(char fileName[])
 {
     sprintf(logFileName, "%s.log", fileName);
 }
 
 
-void LogFile(char message[1000])
+void LogFile(char message[])
 {
-    char date[100];
+    char date[600];
 
     time_t t;
     time(&t);
@@ -36,21 +32,21 @@ void LogFile(char message[1000])
 
     return 0;
 }
-void LogError(char message[1000])
+void LogError(char message[])
 {
     char error[100];
     strcpy(error, "Error-");
     strcat(error, message);
     LogFile(error);
 }
-void LogEvent(char message[100])
+void LogEvent(char message[])
 {
     char event[100];
     strcpy(event, "Event-");
     strcat(event, message);
     LogFile(event);
 }
-void LogWarning(char message[100])
+void LogWarning(char message[])
 {
     char event[100];
     strcpy(event, "Warning-");

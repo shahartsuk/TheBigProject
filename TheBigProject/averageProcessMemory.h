@@ -11,3 +11,4 @@
 
 unsigned long long averageProcessMemory(t_SnapShot*);
 unsigned long long averageSnapShotMemory();
+void buildProcessDictionaryList(t_Process*);

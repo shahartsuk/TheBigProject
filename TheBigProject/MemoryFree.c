@@ -52,6 +52,8 @@ void releaseTheCollection() { // deletes all list
 		Shead = Shead->next;
 		free(currentSnapShot);
 	}
+	releaseDLLDictionaryList();
+	releaseProcessDictionaryList();
 }
 
 void releaseDLLDictionaryList()
@@ -63,4 +65,15 @@ void releaseDLLDictionaryList()
 		free(freeTheList);
 	}
 	DDictionaryHead = DDictionaryTail = NULL;
+}
+
+void releaseProcessDictionaryList()
+{
+	t_PDictionary* freeTheList;
+	while (DDictionaryHead) {
+		freeTheList = PDictionaryHead;
+		PDictionaryHead = PDictionaryHead->next;
+		free(freeTheList);
+	}
+	PDictionaryHead = PDictionaryTail = NULL;
 }
